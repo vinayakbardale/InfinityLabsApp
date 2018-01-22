@@ -1,0 +1,16 @@
+<ng-template #serialNumberTemplate let-row let-col="col" let-rowIndex="rowIndex">
+    <div>
+        <span>
+            {{rowIndex+1}}
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #defaultTemplate let-row let-col="col" let-rowIndex="rowIndex">
+    <div>
+        <span>{{row[col.field]}}</span>
+    </div>
+</ng-template>
+
+
+<il-datatable [data]="data" [config]="config"></il-datatable>

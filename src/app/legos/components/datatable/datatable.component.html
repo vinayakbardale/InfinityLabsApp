@@ -1,0 +1,10 @@
+<p-dataTable [value]="data">
+    <p-column *ngFor="let col of config.columns" [field]="col.field" [header]="col.header">
+
+        <ng-template *ngIf="col.template" let-row="rowData" let-rowIndex="rowIndex" pTemplate="body">
+            <ng-container *ngTemplateOutlet="col.template;context:{$implicit: row,col:col,rowIndex:rowIndex}">
+            </ng-container>
+        </ng-template>
+
+    </p-column>
+</p-dataTable>
