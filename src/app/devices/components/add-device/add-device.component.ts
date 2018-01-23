@@ -1,22 +1,24 @@
-import { Component, OnInit ,Output,EventEmitter } from '@angular/core';
+import { DevicesService } from '../../services/devices.service';
+import { Component, OnInit ,Output,EventEmitter,ViewEncapsulation } from '@angular/core';
+
 
 @Component({
   selector: 'ilapp-device-add',
   templateUrl: './add-device.component.html',
-  styleUrls: ['./add-device.component.scss']
+  styleUrls: ['./add-device.component.scss'],
+  encapsulation:ViewEncapsulation.None
 })
 export class AddDeviceComponent implements OnInit {
-  @Output() eventOnAddDevice: EventEmitter<any> = new EventEmitter();
   data:any;
 
-  constructor() { }
+  constructor(private devicesService:DevicesService) { }
 
   ngOnInit() {
-    this.data = {hostName:'',loopBack:''};
+    this.data = {id:'', hostName:'',loopBack:''};
   }
 
   onSubmit(){
-    this.eventOnAddDevice.emit({args:this.data});
+    this.devicesService.addDevice(JSON.parse(JSON.stringify(this.data)));
   }
 
 

@@ -1,0 +1,11 @@
+<div class="dialog-box-wrapper">
+    <div class="dialog-box" [ngClass]="config.class">
+        <p-dialog [header]="config.header" icon="fa fa-question-circle" [(visible)]="config.display" modal="modal" [width]="config.width"
+            [responsive]="config.responsive">
+            <ng-content select=".dialog-body"></ng-content>
+            <p-footer>
+                <ng-content select=".dialog-footer"></ng-content>
+            </p-footer>
+        </p-dialog>
+    </div>
+</div>

@@ -8,3 +8,32 @@
 
     </p-column>
 </p-dataTable>
+
+
+<ng-template #serialNumberTemplate let-row let-col="col" let-rowIndex="rowIndex">
+    <div>
+        <span>
+            {{rowIndex+1}}
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #defaultTemplate let-row let-col="col" let-rowIndex="rowIndex">
+    <div>
+        <span>{{row[col.field]}}</span>
+    </div>
+</ng-template>
+
+<ng-template #actionTemplate let-row let-col="col" let-rowIndex="rowIndex">
+    <div>
+        <span (click)="onActionTrigger('EDIT',row,rowIndex)">
+            Edit
+        </span>
+        <span (click)="onActionTrigger('DELETE',row,rowIndex)">
+            Delete
+        </span>
+        <span (click)="onActionTrigger('VIEW',row,rowIndex)">
+            View
+        </span>
+    </div>
+</ng-template>

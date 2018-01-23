@@ -1,1 +1,35 @@
-<ilapp-legos-datatable [data]="data" [config]="config" ></ilapp-legos-datatable>
+<il-datatable [data]="data" [config]="deviceTableConfig" (onActionTriggered)="actionTriggered($event)"></il-datatable>
+
+
+
+<il-dialog [config]="interfaceTableModal">
+    <div class="dialog-body">
+        <form name="deviceadd-form" (submit)="addInterFace()">
+            <div class="ui-g">
+                <div class="ui-g-6 ui-md-4">
+                    <label class="ui-g" style="padding-bottom:5px;">
+            <strong>Interface:</strong>
+        </label>
+                    <input type="text" maxlength="256" class="text-field" placeholder="device host name" [(ngModel)]="newInterface.interface" #hostName="ngModel"
+                        [ngModelOptions]="{standalone: true}" required style="width:90%;">
+                </div>
+                <div class="ui-g-6 ui-md-4">
+                    <label class="ui-g" style="padding-bottom:5px;">
+            <strong>IP:</strong>
+        </label>
+                    <input type="text" class="text-field" placeholder="device loopback" [(ngModel)]="newInterface.ip" #loopBack="ngModel" [ngModelOptions]="{standalone: true}"
+                        required style="width:90%;">
+                </div>
+                <div class="ui-g-6 ui-md-4">
+                    <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-top:15px;width: auto">
+         <span class="ui-button-text ui-clickable">Add</span>
+        </button>
+                </div>
+            </div>
+        </form>
+        <il-datatable [data]="selectedDevice.data.interfaces" [config]="interfaceTableConfig"></il-datatable>
+    </div>
+    <div class="dialog-footer">
+            
+    </div>
+</il-dialog>

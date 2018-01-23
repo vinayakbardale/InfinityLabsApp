@@ -1,15 +1,23 @@
-<form name="deviceadd-form" (submit)="onSubmit()">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input type="text" maxlength="256" class="text-field" placeholder="device host name"
-      [(ngModel)]="data.hostName" #hostName="ngModel" [ngModelOptions]="{standalone: true}" required>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="text" class="text-field" placeholder="device loopback" [(ngModel)]="data.loopBack" #loopBack="ngModel"
-      [ngModelOptions]="{standalone: true}" required>
-  </div>
-  <div  class="submit-btn">
-    <button type="submit" class="button primary-button large-button">Add</button>
-  </div>
-</form>
+  <form name="deviceadd-form" (submit)="onSubmit()">
+    <div class="ui-g">  
+    <div class="ui-g-6 ui-md-4">
+        <label class="ui-g" style="padding-bottom:5px;">
+            <strong>Hostname:</strong>
+        </label>
+          <input type="text" maxlength="256" class="text-field" placeholder="device host name"
+        [(ngModel)]="data.hostName" #hostName="ngModel" [ngModelOptions]="{standalone: true}" required style="width:90%;">
+      </div>
+      <div class="ui-g-6 ui-md-4">
+        <label class="ui-g" style="padding-bottom:5px;">
+            <strong>Loopback:</strong>
+        </label>
+          <input type="text" class="text-field" placeholder="device loopback" [(ngModel)]="data.loopBack" #loopBack="ngModel"
+        [ngModelOptions]="{standalone: true}" required style="width:90%;">
+      </div>
+    <div  class="ui-g-6 ui-md-4">
+       <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-top:15px;width:auto">
+         <span class="ui-button-text ui-clickable">Add</span>
+        </button> 
+    </div>
+    </div>
+  </form>
